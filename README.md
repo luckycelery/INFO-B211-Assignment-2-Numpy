@@ -1,5 +1,4 @@
 # INFO-B211-Assignment-2-Numpy
-# INFO-B211-Assignment-1
 ## a) Purpose of the Program
 
 This program is designed to analyze NBA player statistics in two distinct ways, utilizing Numpy Operations:
