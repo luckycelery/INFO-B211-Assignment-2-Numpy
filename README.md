@@ -4,7 +4,8 @@
 This program is designed to analyze NBA player statistics in two distinct ways, utilizing Numpy Operations:
 - **FULL Reports**, this method will determine (for all players within any season) the field goal accuracy (FGA), three point accuracy (3PG), free throw accuracy (FTA), average points per game (APG), overall shooting accuracy (OSA), average number of blocks per game (ABPG), and average steals per game (ASPG) and output a exhaustive array (variables and functions titled 'matrix' are for ease of comprehension, not as a means to reflect state of being)
 - **Top 100 Reports**, this method will perform the same operations that the full reports do, but then sort the values' and output the top 100 values for any specified category. 
-The program supports either functionlity by following the prompts in the terminal.
+
+- The program supports either functionlity by following the prompts in the terminal.
 You can pull all files from the repo and the program should run as expected.
 
 ---
