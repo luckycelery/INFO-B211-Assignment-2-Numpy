@@ -16,7 +16,7 @@ Computes the following metrics for every player in the dataset:
 - ABPG — Average Blocks per Game  
 - ASPG — Average Steals per Game  
 
-The output is a complete list of `[player_name, value]` pairs.
+The output is a complete list of `[player_name, value]` pairs withn a created csv file. 
 
 ### Top 100 Reports
 Performs the same calculations as FULL mode, then:
@@ -376,14 +376,16 @@ A CSV file saved in the script directory containing the Top 100 players for a gi
    - Prompt for stat type: `FGA`, `3PA`, `FTA`, `APPM`, `OSA`, `ABPG`, `ASPG`
    - Validate the input
    - Call `top_100_matrix(data, stat_type, 100)`
-   - Print the top 100 in a readable format: `name value`
+   - Call `save_top100_report`
+   - save structured Numpy array to dedicated csv file
 
 5. If the user enters `"FULL"`:
 
    - Prompt for stat type (same options)
    - Validate the input
    - Call `matrix_creation(data, stat_type)`
-   - Print the full array as a list of tuples
+   - Call `save_full_report_csv`
+   - save structured Numpy array to dedicated csv file
 
 6. If the user enters anything else:
 
