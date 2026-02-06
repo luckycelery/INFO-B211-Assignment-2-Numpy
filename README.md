@@ -131,6 +131,10 @@ Compute three-point accuracy (3PM / 3PA).
 
 - Same pattern as `fgacc`, with division-by-zero handled safely
 
+**Output:**
+
+- NumPy array of 3 point accuracy (floats)
+
 ---
 
 ### `ftacc(data)`
@@ -151,6 +155,10 @@ Compute free throw accuracy (FTM / FTA).
 
 - Same pattern as `fgacc`, with division-by-zero handled safely
 
+**Output:**
+
+- NumPy array of free throw accuracy values (floats)
+  
 ---
 
 ### `APPM(data)`
@@ -170,6 +178,10 @@ Compute average points per minute (PTS / MIN).
 **Behavior:**
 
 - Same pattern as `fgacc`, with division-by-zero handled safely
+
+**Output:**
+
+- NumPy array of average points per minute values (floats)
 
 ---
 
@@ -199,6 +211,10 @@ Compute overall shooting accuracy, combining all shot types:
 - Sums made and attempted shots
 - Returns 0 when total attempts is 0
 
+**Output:**
+
+- NumPy array of overall shooting accuracy values (floats)
+
 ---
 
 ### `ABPG(data)`
@@ -215,6 +231,14 @@ Compute average blocks per game (BLK / GP).
 - `data[:, 20]`: blocks  
 - `data[:, 5]`: games played
 
+**Behavior:**
+
+-sums the number of blocks and divides by sum of number of games
+
+**Output:**
+
+- NumPy array of average number of blocks per game values (floats)
+
 ---
 
 ### `ASPG(data)`
@@ -230,6 +254,10 @@ Compute average steals per game (STL / GP).
 
 - `data[:, 19]`: steals  
 - `data[:, 5]`: games played
+
+**Output:**
+
+- NumPy array of average steals per game values (floats)
 
 ---
 
@@ -288,6 +316,52 @@ Return the top `n` players for a given metric.
 - List of `(name, value)` tuples for the top `n` players
 
 ---
+### 'save_full_report_csv(stat_type, fulloutput, script_dir)'
+
+**Purpose:**
+Save the full list of players and their computed metric values into a CSV file where each row contains a player name and the associated value.
+
+**Inputs:**
+
+`stat_type`: the selected metric type (FGA, 3PA, FTA, APPM, OSA, ABPG, ASPG)
+`fulloutput`: a structured NumPy array returned by matrix_creation, containing fields "name" and "val"
+`script_dir`: the directory where the script is located; ensures the file is saved alongside the program
+
+**Behavior:**
+
+- Creates a filename based on the metric (e.g., FULL_FGA_report.csv)
+- Writes a header row (Player,Value)
+- Iterates through the structured array
+- Writes each player’s name and value as a separate CSV row
+- Ensures spreadsheet programs (Excel, Google Sheets) place the name in column A and the value in column B
+
+**Output:**
+
+- A CSV file saved in the script directory containing the full dataset for the selected metric, formatted as two columns: player name and metric value
+
+### `save_top100_report(stat_type, top100output, script_dir)`
+
+**Purpose:** 
+Save the Top 100 players for a selected metric into a CSV file with two columns: player name and metric value.
+
+**Inputs:**
+
+- `stat_type`: the selected metric type
+- `top100output`: a structured NumPy array returned by top_100_matrix, containing the top n rows with "name" and "val" fields
+- `script_dir`: the directory where the script is located
+
+**Behavior:**
+
+- Creates a filename based on the metric (e.g., TOP_100_FGA_REPORT.csv)
+- Writes a header row (Player,Value)
+- Iterates through the structured array
+- Writes each player’s name and value as a separate CSV row
+- Ensures the output opens cleanly in spreadsheet software with each value in its own cell
+
+Output:
+
+A CSV file saved in the script directory containing the Top 100 players for a given metric and their values, formatted for easy viewing and analysis
+
 
 ## e) Program Flow
 
